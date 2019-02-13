@@ -32,7 +32,6 @@ namespace DL.STS.Host
 
             services
                 .AddIdentityServer()
-                .AddDeveloperSigningCredential()
                 .AddEFConfigurationStore(dbConnectionString)
                 .AddEFOperationalStore(dbConnectionString)
                 .AddAspNetIdentity<AppUser>();
