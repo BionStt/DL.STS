@@ -1,4 +1,5 @@
-﻿using DL.STS.Data.Identity.Extensions;
+﻿using DL.STS.Data.ConfigurationStore.EFCore.Extensions;
+using DL.STS.Data.Identity.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -18,12 +19,18 @@ namespace DL.STS.Host
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddIdentityService(_configuration);
+            string dbConnectionString = _configuration.GetConnectionString("appDbConnection");
+
+            services.AddIdentityService(dbConnectionString);
 
             services
                 .AddRouting(options => options.LowercaseUrls = true)
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services
+                .AddIdentityServer()
+                .AddEFConfigurationStore(dbConnectionString);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
