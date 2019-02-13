@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Data\DL.STS.Data.ConfigurationStore.EFCore\DL.STS.Data.ConfigurationStore.EFCore.csproj" />
     <ProjectReference Include="..\Data\DL.STS.Data.Identity\DL.STS.Data.Identity.csproj" />
+    <ProjectReference Include="..\Data\DL.STS.Data.OperationalStore.EFCore\DL.STS.Data.OperationalStore.EFCore.csproj" />
   </ItemGroup>
 
 </Project>

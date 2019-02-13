@@ -1,9 +1,9 @@
 ﻿using DL.STS.Data.ConfigurationStore.EFCore.Extensions;
 using DL.STS.Data.Identity.Entities;
 using DL.STS.Data.Identity.Extensions;
+using DL.STS.Data.OperationalStore.EFCore.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,6 +34,7 @@ namespace DL.STS.Host
                 .AddIdentityServer()
                 .AddDeveloperSigningCredential()
                 .AddEFConfigurationStore(dbConnectionString)
+                .AddEFOperationalStore(dbConnectionString)
                 .AddAspNetIdentity<AppUser>();
         }
 
