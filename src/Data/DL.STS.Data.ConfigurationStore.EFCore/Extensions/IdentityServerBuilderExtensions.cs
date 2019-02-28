@@ -22,6 +22,9 @@ namespace DL.STS.Data.ConfigurationStore.EFCore.Extensions
                     )
             );
 
+            // TODO: need to review
+            //builder.AddConfigurationStoreCache();
+
             return builder;
         }
     }

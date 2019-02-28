@@ -23,7 +23,5 @@ Then copy the thumb print from the self-signed certificate and replace the one i
 
     {
         ...,
-        "IdentityServer": {
-            "ThumbPrint": "XXXX"
-        }
+        "ThumbPrint": "XXXX"
     }

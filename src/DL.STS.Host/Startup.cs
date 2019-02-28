@@ -2,6 +2,7 @@
 using DL.STS.Data.Identity.Entities;
 using DL.STS.Data.Identity.Extensions;
 using DL.STS.Data.OperationalStore.EFCore.Extensions;
+using DL.STS.Host.App.Account.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -32,15 +33,18 @@ namespace DL.STS.Host
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            // Read thumbpaint from appsettings
-            string thumbPrint = _configuration.GetValue<string>("IdentityServer:ThumbPrint");
-
+            // Read thumbprint from appsettings
+            string thumbPrint = _configuration.GetValue<string>("ThumbPrint");
             services
                 .AddIdentityServer()
                 .AddEFConfigurationStore(dbConnectionString)
                 .AddEFOperationalStore(dbConnectionString)
                 .AddAspNetIdentity<AppUser>()
                 .AddSigningCredential(LoadCertificate(thumbPrint));
+
+            // Register MediatR
+            services
+                .AddAccountMediatR();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

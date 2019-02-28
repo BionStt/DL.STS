@@ -24,10 +24,11 @@
     <PackageReference Include="IdentityServer4.AspNetIdentity" Version="2.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Application\DL.STS.Host.App.Account\DL.STS.Host.App.Account.csproj" />
     <ProjectReference Include="..\Data\DL.STS.Data.ConfigurationStore.EFCore\DL.STS.Data.ConfigurationStore.EFCore.csproj" />
     <ProjectReference Include="..\Data\DL.STS.Data.Identity\DL.STS.Data.Identity.csproj" />
     <ProjectReference Include="..\Data\DL.STS.Data.OperationalStore.EFCore\DL.STS.Data.OperationalStore.EFCore.csproj" />
